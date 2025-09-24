@@ -10,6 +10,7 @@ data("sampson")
 monk_mat <- sampson$SAMPLK2
 
 #PART 1
+#STATIC graph
 #stores igraph into variable g
 g <- graph_from_adjacency_matrix(
   monk_mat,
