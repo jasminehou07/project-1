@@ -7,3 +7,15 @@ data("sampson")
 
 # take matrix SAMPLK2 and store it inside a variable
 monk_mat <- sampson$SAMPLK2
+
+#stores igraph into variable g
+g <- graph_from_adjacency_matrix(
+  monk_mat,
+  mode = "directed",
+  weighted = TRUE,
+  diag = FALSE
+)
+
+#plot the igraph
+plot(g)
+
