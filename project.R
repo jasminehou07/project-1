@@ -34,9 +34,9 @@ nodes <- data.frame(
 # makes a table of all of the monk connections
 edge_idx <- which(monk_mat > 0, arr.ind = TRUE)
 links <- data.frame(
-  source = edge_idx[, 1] - 1,        # 0-indexed
-  target = edge_idx[, 2] - 1,        # 0-indexed
-  value  = monk_mat[edge_idx]        # tie strength
+  source = edge_idx[, 1] - 1,
+  target = edge_idx[, 2] - 1, 
+  value  = monk_mat[edge_idx]    
 )
 
 # save the interactive graph to fn
@@ -69,3 +69,17 @@ stats_observed <- list(
   mean_tie_strength = mean_tie_strength
 )
 
+
+# barplot of in-degree
+barplot(in_degree, names.arg = names(in_degree), main = "In-degree of Sampson's Monks", xlab = "Monks", ylab = "In-degree")
+
+
+# most liked and least liked
+max_in <- max(in_degree) #highest in-degree = most liked
+min_in <- min(in_degree) #lowest in-degree = most liked
+most_liked  <- names(in_degree)[in_degree == max_in] #finds the name of the monk with highest in-degree
+least_liked <- names(in_degree)[in_degree == min_in] #finds the monk with the lowest in-degree
+
+#display the most and least liked
+paste("The most liked monk is", most_liked)
+paste("The least liked monk is", least_liked)
