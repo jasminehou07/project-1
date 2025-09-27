@@ -52,4 +52,20 @@ fn <- forceNetwork(
 fn
 
 
+#PART 2
+# out & in degree
+out_degree <- degree(g, mode = "out") #outgoing ties
+in_degree  <- degree(g, mode = "in") #incoming ties
+
+# mean tie strength
+monks_with_ties <- monk_mat[out_degree > 0, ] #takes only monks that have ties
+mean_tie_strength <- mean(monks_with_ties[monks_with_ties > 0]) #finds mean tie strength between monks that have ties with each other
+
+
+# store results in a list
+stats_observed <- list(
+  out_degree = out_degree,
+  in_degree = in_degree,
+  mean_tie_strength = mean_tie_strength
+)
 
