@@ -86,24 +86,32 @@ paste("The least liked monk is", least_liked)
 
 
 #PART 3
-random_network <- function(n, p = 0.5) {
+# function to generate a random directed network
+# n = number of monks
+# k = 3 for the 3 levels of relationship between the monks
+random_network <- function(n, k = 3) {
   # start with n x n matrix to show all the relationships between the monks
   mat <- matrix(0, nrow = n, ncol = n)
   
-  # randomly fill in with ties
+  # for each monk, randomly pick exactly k other monks and assign strengths 3,2,1
   for (i in 1:n) {
-    for (j in 1:n) {
-      if (i != j) {  # no self-ties
-        mat[i, j] <- sample(c(0,1), size = 1, prob = c(1-p, p))  #if it chooses 1, tie is created, 0 mean no tie
-      }
-    }
+    # choose k distinct others (no self-ties)
+    picks <- sample(setdiff(1:n, i), size = k, replace = FALSE)
+    
+    # randomly shuffle strengths so the ordering isn't always the same
+    levels <- sample(c(3, 2, 1), size = k, replace = FALSE)
+    
+    # fill in the chosen columns with the strengths
+    mat[i, picks] <- levels
   }
   
-#labels rows and columns with monk names
+  # labels rows and columns with monk names
   rownames(mat) <- paste0("Monk_", 1:n)
   colnames(mat) <- paste0("Monk_", 1:n)
   return(mat)
 }
 
-rand_monks <- random_network(10) #example to test the function
+# example to test the function (same pattern as your example)
+rand_monks <- random_network(10) 
 print(rand_monks)
+
