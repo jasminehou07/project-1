@@ -1,1 +1,5 @@
 #The Sampson monk dataset has uneven popularity and a clear structure of who is popular among most of the monks. You can also see that specific monks chose each other which reflects their natural relationships in real life. My simulated network makes each monk nominate 3 other monks at random so there is no clear trend of popularity or specific relationships between the monks. The simulated data is much more balanced and lacks clusters that are seen in the original dat set. The simulation works to a certain extent but doesn't show clear popularity differences or grouping that is seen in the real monks network.
+
+<img width="760" height="656" alt="Screenshot 2025-09-23 at 3 00 28 PM" src="https://github.com/user-attachments/assets/bdca31c6-7489-423b-917d-ec0fb73b2a7b" />
+<img width="449" height="437" alt="Screenshot 2025-09-29 at 10 10 11 PM" src="https://github.com/user-attachments/assets/bb584bda-72e0-4cf5-a0a1-5d368090bee9" />
+<img width="1920" height="840" alt="Screenshot 2025-09-29 at 10 10 41 PM" src="https://github.com/user-attachments/assets/eeb2fff2-ae8b-44f2-ab91-c3e0aec25caf" />
