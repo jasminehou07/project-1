@@ -32,13 +32,15 @@ nodes <- data.frame(
 )
 
 # makes a table of all of the monk connections
-edge_idx <- which(monk_mat > 0, arr.ind = TRUE)
-links <- data.frame(
-  source = edge_idx[, 1] - 1,
-  target = edge_idx[, 2] - 1, 
-  value  = monk_mat[edge_idx]    
-)
-
+edges <- data.dram()
+for (i in 1:nrow(mat)){
+  for(j in 1:ncol(mat)){
+    if(mat[i,j] > 0){
+      edges <- rbind(edges, data.drame(from i-1, to j-1)
+    }
+  }
+}
+                  
 # save the interactive graph to fn
 fn <- forceNetwork(
   Links = links, Nodes = nodes,
